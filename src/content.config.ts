@@ -52,6 +52,13 @@ const projects = defineCollection({
     date: z.string().optional(),
     summary: z.string().optional(),
     status: z.enum(['current', 'past']).optional(),
+    start_date: z.string().optional(),
+    end_date: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+    founding_entity: z.string().optional(),
+    grant_number: z.string().optional(),
+    investigators: z.array(z.string()).optional(),
+    publications: z.array(z.string()).optional(),
   })
 });
 

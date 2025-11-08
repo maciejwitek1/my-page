@@ -12,10 +12,91 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+const publications = await getCollection('publications', ({ slug }) => {
+  return entry.data.publications?.includes(slug);
+});
 ---
 <MainLayout title={entry.data.title} description={entry.data.description}>
-  <article class="prose dark:prose-invert max-w-none">
-    <h1>{entry.data.title}</h1>
-    <Content />
-  </article>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+    <article class="md:col-span-2">
+      <h1 class="project-title">{entry.data.title}</h1>
+      <div class="prose dark:prose-invert max-w-none mt-8 p-6 rounded-lg" style="background-color: var(--color-container-bg);">
+        <Content />
+      </div>
+
+      {publications && publications.length > 0 && (
+        <>
+          <h2>Related Publications</h2>
+          <ul class="publication-list">
+            {publications.map(pub => (
+              <li class="publication-item">
+                <a class="publication-link" href={`/publications/${pub.slug}`}>
+                  <span class="title">{pub.data.title}</span>
+                  <span class="author">{pub.data.author}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+    </article>
+
+    <aside class="md:col-span-1">
+      <div class="sticky top-8 p-6 rounded-lg" style="background-color: var(--color-container-bg);">
+        <h2 class="text-xl font-bold mb-4">Project Details</h2>
+        <dl class="space-y-4">
+          {entry.data.status && (
+            <div>
+              <dt class="font-semibold">Status</dt>
+              <dd class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100">
+                {entry.data.status}
+              </dd>
+            </div>
+          )}
+          {(entry.data.start_date || entry.data.end_date) && (
+            <div>
+              <dt class="font-semibold">Dates</dt>
+              <dd>{entry.data.start_date} - {entry.data.end_date}</dd>
+            </div>
+          )}
+          {entry.data.investigators && (
+            <div>
+              <dt class="font-semibold">Investigators</dt>
+              <dd>{entry.data.investigators.join(', ')}</dd>
+            </div>
+          )}
+          {entry.data.founding_entity && (
+            <div>
+              <dt class="font-semibold">Funding</dt>
+              <dd>{entry.data.founding_entity}</dd>
+            </div>
+          )}
+          {entry.data.grant_number && (
+            <div>
+              <dt class="font-semibold">Grant Number</dt>
+              <dd>{entry.data.grant_number}</dd>
+            </div>
+          )}
+          {entry.data.tags && (
+            <div>
+              <dt class="font-semibold">Tags</dt>
+              <dd class="flex flex-wrap gap-2">
+                {entry.data.tags.map(tag => (
+                  <span class="bg-sky-100 text-sky-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-sky-900 dark:text-sky-300">{tag}</span>
+                ))}
+              </dd>
+            </div>
+          )}
+        </dl>
+      </div>
+    </aside>
+  </div>
 </MainLayout>
+
+<style>
+  .prose p {
+    margin-bottom: 2rem;
+  }
+</style>
+

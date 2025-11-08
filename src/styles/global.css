@@ -123,6 +123,7 @@ html[data-theme='light'] {
   .project-title {
     font-size: 1.875rem; /* text-3xl */
     line-height: 1;
+    margin-top: 2rem;
   }
 }
 
@@ -256,4 +257,16 @@ html[data-theme='light'] {
   .search-wrapper {
     width: 40%;
   }
+}
+
+
+.prose ul {
+  list-style-type: disc;
+  padding-left: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
 }
