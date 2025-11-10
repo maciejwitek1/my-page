@@ -60,7 +60,7 @@ const tabs = [
 
 <style>
   :root {
-    --menu-width-lg: clamp(143px, 13vw, 260px);
+    --menu-width-lg: 260px;
     --menu-width-sm: 250px; /* Zwężone menu mobilne */
     --menu-border: var(--color-menu-bg);
     --menu-link-hover-bg: var(--color-menu-bg);
@@ -128,7 +128,7 @@ const tabs = [
   }
 
   /* --- Style dla małych ekranów (Mobile) --- */
-  @media (max-width: 1600px) {
+  @media (max-width: 1280px) {
     .menu-toggle {
       display: block; /* Zmieniono na block dla pozycjonowania ikon */
       position: fixed;
@@ -198,7 +198,7 @@ const tabs = [
     opacity: 0.5;
   }
 
-  @media (max-width: 1600px) {
+  @media (max-width: 1280px) {
     .themeswitcher-container {
       justify-content: flex-end; /* Przesunięcie do prawej */
       width: auto; /* Szerokość auto, jak na desktopie */
