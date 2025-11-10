@@ -18,31 +18,9 @@ const publications = await getCollection('publications', ({ slug }) => {
 });
 ---
 <MainLayout title={entry.data.title} description={entry.data.description}>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8">
-    <article class="md:col-span-2">
-      <h1 class="project-title">{entry.data.title}</h1>
-      <div class="prose dark:prose-invert max-w-none mt-8 p-6 rounded-lg prose-content" style="background-color: var(--color-container-bg);">
-        <Content />
-      </div>
-
-      {publications && publications.length > 0 && (
-        <>
-          <h2>Related Publications</h2>
-          <ul class="publication-list">
-            {publications.map(pub => (
-              <li class="publication-item">
-                <a class="publication-link" href={`/publications/${pub.slug}`}>
-                  <span class="title">{pub.data.title}</span>
-                  <span class="author">{pub.data.author}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </>
-      )}
-    </article>
-
-    <aside class="md:col-span-1">
+  <h1 class="project-title">{entry.data.title}</h1>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-8">
+    <aside class="lg:col-span-1">
       <div class="sticky top-8 p-6 rounded-lg" style="background-color: var(--color-container-bg);">
         <h2 class="text-xl font-bold mb-4">Project Details</h2>
         <dl class="space-y-4">
@@ -91,6 +69,27 @@ const publications = await getCollection('publications', ({ slug }) => {
         </dl>
       </div>
     </aside>
+    <article class="lg:col-span-2">
+      <div class="prose dark:prose-invert max-w-none p-6 rounded-lg prose-content" style="background-color: var(--color-container-bg);">
+        <Content />
+      </div>
+
+      {publications && publications.length > 0 && (
+        <>
+          <h2>Related Publications</h2>
+          <ul class="publication-list">
+            {publications.map(pub => (
+              <li class="publication-item">
+                <a class="publication-link" href={`/publications/${pub.slug}`}>
+                  <span class="title">{pub.data.title}</span>
+                  <span class="author">{pub.data.author}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+    </article>
   </div>
 </MainLayout>
 
