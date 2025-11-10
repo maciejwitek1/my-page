@@ -22,11 +22,22 @@ import MenuBar from "../components/MenuBar.astro";
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
   <body class="min-h-screen antialiased">
+    <a href="/" class="logo">Maciej Witek - Official site</a>
     <MenuBar currentPage={Astro.url.pathname} />
     <main class="main-content slide-in">
       <slot />
     </main>
     <style>
+      .logo {
+        position: fixed;
+        top: 1.5rem;
+        left: 2.5rem;
+        z-index: 1001;
+        font-size: 1rem;
+        color: var(--color-fg);
+        text-decoration: none;
+        opacity: 0.5;
+      }
       body {
         background-color: var(--color-bg);
         color: var(--color-fg);
