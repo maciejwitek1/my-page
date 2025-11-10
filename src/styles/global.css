@@ -190,6 +190,16 @@ html[data-theme='light'] {
   font-weight: 600;
 }
 
+.project-link-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Ensure it takes full width */
+}
+
+.project-title-in-list {
+  font-weight: 600;
+}
+
 .publication-link .author {
   font-size: 0.875rem;
 }
@@ -286,4 +296,21 @@ html[data-theme='light'] {
   width: 24px;
   height: 24px;
   flex-shrink: 0;
+}
+
+.project-description {
+  width: 85%; /* Mobile-first width */
+  font-size: 0.875rem; /* 14px */
+  color: var(--color-fg-variant);
+  padding-top: 0.25rem; /* 4px */
+  padding-left: 1.5rem; /* 24px, to align with text, not the icon */
+  font-weight: 400; /* Ensure description is not bold */
+  line-height: 1.4;
+  opacity: 0.7;
+}
+
+@media (min-width: 769px) {
+  .project-description {
+    width: 60%; /* Desktop width */
+  }
 }
