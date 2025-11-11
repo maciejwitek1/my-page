@@ -1,0 +1,14 @@
+---
+import Icon from './Icon.astro';
+
+export interface Props {
+  href: string;
+  text: string;
+  iconName?: string;
+}
+const { href, text, iconName } = Astro.props;
+---
+<a href={href} target="_blank" rel="noopener noreferrer" class="cv-button">
+  {iconName && <Icon name={iconName} />}
+  <span>{text}</span>
+</a>

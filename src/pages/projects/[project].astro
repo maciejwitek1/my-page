@@ -1,6 +1,7 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
 import { getCollection } from 'astro:content';
+import LinkButton from '@components/LinkButton.astro';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -67,6 +68,9 @@ const publications = await getCollection('publications', ({ slug }) => {
             </div>
           )}
         </dl>
+        {entry.data.project_site && (
+          <LinkButton href={entry.data.project_site} text="Go to official project site" iconName="mdi:arrow-right" />
+        )}
       </div>
     </aside>
     <article class="lg:col-span-2 space-y-8">

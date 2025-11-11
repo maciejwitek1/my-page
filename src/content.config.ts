@@ -59,6 +59,7 @@ const projects = defineCollection({
     grant_number: z.string().optional(),
     investigators: z.array(z.string()).optional(),
     publications: z.array(z.string()).optional(),
+    project_site: z.string().url().optional(),
   })
 });
 

@@ -1,7 +1,7 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
 import { getCollection } from 'astro:content';
-import Icon from '@components/Icon.astro';
+import LinkButton from '@components/LinkButton.astro';
 
 export async function getStaticPaths() {
   const publications = await getCollection('publications');
@@ -38,22 +38,13 @@ const { Content } = await entry.render();
         <div class="mb-8">
           <div class="flex flex-wrap gap-4 mt-2">
             {entry.data.journalLink && (
-              <a href={entry.data.journalLink} target="_blank" rel="noopener noreferrer" class="cv-button">
-                <Icon name="mdi:web" size={24} />
-                <span>Link do czasopisma</span>
-              </a>
+              <LinkButton href={entry.data.journalLink} text="Link do czasopisma" iconName="mdi:web" />
             )}
             {entry.data.preprint && (
-              <a href={entry.data.preprint} target="_blank" rel="noopener noreferrer" class="cv-button">
-                <Icon name="mdi:file-pdf-box" size={24} />
-                <span>Pobierz preprint</span>
-              </a>
+              <LinkButton href={entry.data.preprint} text="Pobierz preprint" iconName="mdi:file-pdf-box" />
             )}
             {entry.data.pdfFile && (
-              <a href={entry.data.pdfFile} target="_blank" rel="noopener noreferrer" class="cv-button">
-                <Icon name="mdi:file-download" size={24} />
-                <span>Pobierz publikację</span>
-              </a>
+              <LinkButton href={entry.data.pdfFile} text="Pobierz publikację" iconName="mdi:file-download" />
             )}
           </div>
         </div>
