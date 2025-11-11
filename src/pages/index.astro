@@ -74,10 +74,12 @@ if (bio[0]) {
      
     </div>
     <div class="mt-1 lg:mt-2 flex w-full justify-center lg:justify-start">
-      <div class="flex w-full lg:w-[31%] flex-wrap items-start justify-center lg:justify-start gap-2">
-        {person.socialLinks && person.socialLinks.map((link: { href: string; text: string }) => (
-          <a href={link.href} target="_blank" rel="noopener noreferrer" class="styled-link">{link.text}</a>
-        ))}
+      <div class="prose dark:prose-invert w-full lg:w-[31%]">
+        <p>
+          {person.socialLinks && person.socialLinks.map((link: { href: string; text: string }) => (
+            <a href={link.href} target="_blank" rel="noopener noreferrer" class="mr-2 mb-2">{link.text}</a>
+          ))}
+        </p>
       </div>
     </div>
     
@@ -182,7 +184,7 @@ if (bio[0]) {
 
   .image-wrapper {
     padding: 4px;
-    background-color: var(--secondary);
+    background-color: var(--text);
     border-radius: 50%;
     box-shadow: 0 4px 6px var(--shadow-color);
     margin-inline: auto;
@@ -253,18 +255,4 @@ if (bio[0]) {
   }
 
   /* Usunięto style dla h1 i p, ponieważ są teraz w global.css */
-  .styled-link {
-    display: inline-block;
-    font-weight: 600;
-    text-decoration: none;
-    background-color: var(--link-color);
-    color: var(--text);
-    padding: 0.2rem 0.4rem;
-    border-radius: 4px;
-    transition: background-color 0.2s, color 0.2s;
-  }
-  .styled-link:hover {
-    background-color: var(--hover-color);
-    color: var(--text);
-  }
 </style>

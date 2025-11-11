@@ -82,8 +82,8 @@ html[data-theme='light'] {
   transition: background-color 0.2s, color 0.2s;
 }
 .prose p a:hover {
-  background-color: var(--hover-color);
-  color: var(--text);
+  background-color: var(--text);
+  color: var(--link-color);
 }
 
 .h1-global {
@@ -326,5 +326,9 @@ html[data-theme='light'] {
   background-repeat: no-repeat;
   opacity: var(--background-opacity);
   z-index: -1;
+}
+
+.prose h3 {
+  color: var(--text);
 }
 

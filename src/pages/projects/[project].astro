@@ -61,7 +61,7 @@ const publications = await getCollection('publications', ({ slug }) => {
               <dt class="font-semibold">Tags</dt>
               <dd class="flex flex-wrap gap-2">
                 {entry.data.tags.map(tag => (
-                  <span class="bg-secondary text-text text-xs font-medium me-2 px-2.5 py-0.5 rounded">{tag}</span>
+                  <span class="bg-hover-color text-text text-xs font-medium me-2 px-2.5 py-0.5 rounded">{tag}</span>
                 ))}
               </dd>
             </div>
