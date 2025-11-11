@@ -1,5 +1,4 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { getCollection } from 'astro:content';
 
 describe('Parts Integration Tests', () => {
   const mockParts = [
@@ -21,7 +20,6 @@ describe('Parts Integration Tests', () => {
 
   it('should have all parts files in content directory', async () => {
     // Symulacja sprawdzenia plików w src/content/parts/
-    const partsDir = '/Users/franciszeksaja/Desktop/code/praca-z-ojcem/Maciej Witek Site/src/content/parts';
     const expectedFiles = ['inne.mdx', 'part-1.mdx', 'part-2.mdx', 'part-3.mdx', 'part-4.mdx', 'part-5.mdx'];
 
     // W prawdziwym teście sprawdzilibyśmy czy pliki istnieją
