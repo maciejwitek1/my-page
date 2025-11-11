@@ -18,7 +18,7 @@ const { Content } = await entry.render();
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8">
     <article class="prose dark:prose-invert max-w-none md:col-span-3">
       <header>
-        <div class="mb-2 p-4 rounded-lg" style="background-color: var(--color-container-bg);">
+        <div class="mb-2 p-4 rounded-lg bg-secondary">
           <p class="text-base text-gray-600 dark:text-gray-400">
             {entry.data.author}, {new Date(entry.data.publicationDate).toLocaleDateString(entry.data.lang, { year: 'numeric', month: 'long', day: 'numeric' })}
           </p>
@@ -26,7 +26,7 @@ const { Content } = await entry.render();
         <h1 class="project-title mb-8">{entry.data.title}</h1>
       </header>
 
-      <section class="mb-8 p-6 rounded-lg" style="background-color: var(--color-container-bg);">
+      <section class="mb-8 p-6 rounded-lg bg-secondary">
         <p>{entry.data.abstract}</p>
       </section>
 
@@ -61,7 +61,7 @@ const { Content } = await entry.render();
           <h3 class="text-lg font-semibold">Słowa kluczowe</h3>
           <div class="flex flex-wrap gap-2 mt-2">
             {entry.data.keywords.map((keyword: string) => (
-              <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">
+              <span class="bg-secondary text-text text-sm font-medium mr-2 px-2.5 py-0.5 rounded">
                 {keyword}
               </span>
             ))}

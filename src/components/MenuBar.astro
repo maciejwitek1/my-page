@@ -62,9 +62,9 @@ const tabs = [
   :root {
     --menu-width-lg: 260px;
     --menu-width-sm: 250px; /* Zwężone menu mobilne */
-    --menu-border: var(--color-menu-bg);
-    --menu-link-hover-bg: var(--color-menu-bg);
-    --menu-toggle-bg: var(--color-menu-bg);
+    --menu-border: var(--menu-color);
+    --menu-link-hover-bg: var(--hover-color);
+    --menu-toggle-bg: var(--menu-color);
   }
 
   /* --- Style dla dużych ekranów (Desktop) --- */
@@ -76,7 +76,7 @@ const tabs = [
     width: var(--menu-width-lg);
     display: flex;
     flex-direction: column;
-    background-color: var(--color-menu-bg);
+    background-color: var(--menu-color);
     border-left: 1px solid var(--menu-border);
     z-index: 1000;
     transition: transform 0.3s ease-in-out;
@@ -105,7 +105,7 @@ const tabs = [
     font-size: 1.4175rem;
     font-weight: 500;
     text-transform: uppercase;
-    color: var(--color-fg);
+    color: var(--text);
     text-decoration: none;
     transition: background-color 0.2s, color 0.2s, transform 0.2s ease-out;
   }
@@ -116,11 +116,11 @@ const tabs = [
   }
 
   .menu-link:hover {
-    background-color: var(--color-menu-link-hover-bg);
+    background-color: var(--hover-color);
   }
 
   .menu-link.is-active {
-    background-color: var(--color-bg);
+    background-color: var(--primary);
   }
 
   .menu-toggle {
@@ -140,7 +140,7 @@ const tabs = [
       padding: 0.5rem;
       cursor: pointer;
       font-size: 1rem;
-      color: var(--color-fg);
+      color: var(--text);
     }
 
     .menu-container {
@@ -174,7 +174,7 @@ const tabs = [
 
 
   .menu-link.is-active {
-    background-color: var(--color-bg);
+    background-color: var(--primary);
   }
 
   .themeswitcher-container {
@@ -187,14 +187,14 @@ const tabs = [
     right: 1rem;
     width: auto; /* Szerokość dopasuje się do zawartości */
     padding: 0.5rem 1rem; /* Wewnętrzny padding */
-    background-color: var(--color-menu-bg); /* Użycie zmiennej CSS */
+    background-color: var(--menu-color); /* Użycie zmiennej CSS */
     border-radius: 9999px; /* rounded-full */
     border: none; /* Usunięcie ramki */
   }
 
   .themeswitcher-label {
     font-size: 0.8rem;
-    color: var(--color-fg);
+    color: var(--text);
     opacity: 0.5;
   }
 

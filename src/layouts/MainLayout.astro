@@ -35,12 +35,12 @@ import MenuBar from "../components/MenuBar.astro";
         left: 2.5rem;
         z-index: 1001;
         font-size: 1rem;
-        color: var(--color-fg);
+        color: var(--text);
         text-decoration: none;
         opacity: 0.9;
         padding: 0.5rem 1rem;
         border-radius: 0.5rem;
-        background-color: rgba(var(--color-bg-rgb), 0.95);
+        background-color: var(--primary);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
       }
@@ -54,8 +54,8 @@ import MenuBar from "../components/MenuBar.astro";
       }
       
       body {
-        background-color: var(--color-bg);
-        color: var(--color-fg);
+        background-color: var(--primary);
+        color: var(--text);
       }
       .main-content {
         /* Usunięto max-width i margin, aby kontener wypełniał dostępną przestrzeń */

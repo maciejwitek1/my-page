@@ -6,8 +6,8 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<div class="teaching-tile p-6 rounded-lg" style="background-color: var(--color-container-bg);">
-  <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">{title}</h2>
+<div class="teaching-tile p-6 rounded-lg bg-secondary">
+  <h2 class="text-2xl font-bold mb-4 text-text">{title}</h2>
   <div class="prose dark:prose-invert max-w-none">
     <slot />
   </div>
@@ -19,17 +19,17 @@ const { title } = Astro.props;
   }
 
   .highlight-blue {
-    color: #3b82f6; /* blue-500 */
+    color: var(--link-color);
     font-weight: 600;
   }
 
   .highlight-green {
-    color: #10b981; /* green-500 */
+    color: var(--green);
     font-weight: 600;
   }
 
   .highlight-purple {
-    color: #8b5cf6; /* purple-500 */
+    color: var(--hover-color);
     font-weight: 600;
   }
 </style>

@@ -21,13 +21,13 @@ const publications = await getCollection('publications', ({ slug }) => {
   <h1 class="project-title">{entry.data.title}</h1>
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-8">
     <aside class="lg:col-span-1">
-      <div class="sticky top-8 p-6 rounded-lg" style="background-color: var(--color-container-bg);">
+      <div class="sticky top-8 p-6 rounded-lg bg-secondary">
         <h2 class="text-xl font-bold mb-4">Project Details</h2>
         <dl class="space-y-4">
           {entry.data.status && (
             <div>
               <dt class="font-semibold">Status</dt>
-              <dd class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100">
+              <dd class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green text-white">
                 {entry.data.status}
               </dd>
             </div>
@@ -61,7 +61,7 @@ const publications = await getCollection('publications', ({ slug }) => {
               <dt class="font-semibold">Tags</dt>
               <dd class="flex flex-wrap gap-2">
                 {entry.data.tags.map(tag => (
-                  <span class="bg-sky-100 text-sky-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-sky-900 dark:text-sky-300">{tag}</span>
+                  <span class="bg-secondary text-text text-xs font-medium me-2 px-2.5 py-0.5 rounded">{tag}</span>
                 ))}
               </dd>
             </div>
@@ -69,14 +69,14 @@ const publications = await getCollection('publications', ({ slug }) => {
         </dl>
       </div>
     </aside>
-    <article class="lg:col-span-2">
-      <div class="prose dark:prose-invert max-w-none p-6 rounded-lg prose-content" style="background-color: var(--color-container-bg);">
+    <article class="lg:col-span-2 space-y-8">
+      <div class="prose dark:prose-invert max-w-none p-6 rounded-lg bg-secondary">
         <Content />
       </div>
 
       {publications && publications.length > 0 && (
-        <>
-          <h2>Related Publications</h2>
+        <div class="p-6 rounded-lg bg-secondary">
+          <h2 class="text-2xl font-bold mb-4">Related Publications</h2>
           <ul class="publication-list">
             {publications.map(pub => (
               <li class="publication-item">
@@ -87,7 +87,7 @@ const publications = await getCollection('publications', ({ slug }) => {
               </li>
             ))}
           </ul>
-        </>
+        </div>
       )}
     </article>
   </div>
