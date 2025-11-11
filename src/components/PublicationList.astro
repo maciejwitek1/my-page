@@ -12,68 +12,90 @@ const polishPublications = publications.filter(p => p.data.lang === 'pl');
 const englishPublications = publications.filter(p => p.data.lang === 'en');
 ---
 
-<div id="polish-publications-section">
-  <h2 class="text-2xl font-bold mt-8 mb-4 flex items-center gap-2">
-    <PLIcon />
-    <span>Publikacje polskie</span>
-  </h2>
-  <div class="list-container">
-    <ul class="publication-list">
-      {polishPublications.map((publication) => (
-      <li class="publication-item">
-        <a href={path.join(baseUrl, 'publications', publication.slug)} class="publication-link">
-          <div>
-            <span class="publication-author text-sm md:text-base">{publication.data.author}</span>
-            <span class="text-base md:text-lg font-semibold">{publication.data.title}</span>
-            <span class="hidden-data" style="display: none;">
-              {publication.data.keywords.join(' ')}
-              {publication.data.abstract}
-              {publication.data.publicationDate}
-            </span>
-          </div>
-          <Icon name="mdi:arrow-right" class="list-arrow-icon" />
-        </a>
-      </li>
-    ))}
-    </ul>
+<div class="relative-container">
+  <div id="publications-wrapper">
+    <div id="polish-publications-section">
+      <h2 class="text-2xl font-bold mt-8 mb-4 flex items-center gap-2">
+        <PLIcon />
+        <span>Publikacje polskie</span>
+      </h2>
+      <div class="list-container">
+        <ul class="publication-list">
+          {polishPublications.map((publication) => (
+          <li class="publication-item">
+            <a href={path.join(baseUrl, 'publications', publication.slug)} class="publication-link">
+              <div>
+                <span class="publication-author text-sm md:text-base">{publication.data.author}</span>
+                <span class="text-base md:text-lg font-semibold">{publication.data.title}</span>
+                <span class="hidden-data" style="display: none;">
+                  {publication.data.keywords.join(' ')}
+                  {publication.data.abstract}
+                  {publication.data.publicationDate}
+                </span>
+              </div>
+              <Icon name="mdi:arrow-right" class="list-arrow-icon" />
+            </a>
+          </li>
+        ))}
+        </ul>
+      </div>
+    </div>
+
+    <div id="english-publications-section">
+      <h2 class="text-2xl font-bold mt-8 mb-4 flex items-center gap-2">
+        <ENIcon />
+        <span>Publikacje angielskie</span>
+      </h2>
+      <div class="list-container">
+        <ul class="publication-list">
+          {englishPublications.map((publication) => (
+          <li class="publication-item">
+            <a href={path.join(baseUrl, 'publications', publication.slug)} class="publication-link">
+              <div>
+                <span class="publication-author text-sm md:text-base">{publication.data.author}</span>
+                <span class="text-base md:text-lg font-semibold">{publication.data.title}</span>
+                <span class="hidden-data" style="display: none;">
+                  {publication.data.keywords.join(' ')}
+                  {publication.data.abstract}
+                  {publication.data.publicationDate}
+                </span>
+              </div>
+              <Icon name="mdi:arrow-right" class="list-arrow-icon" />
+            </a>
+          </li>
+        ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="no-results-message" class="no-results-message" style="display: none;">
+    <Icon name="mdi:magnify-close" class="no-results-icon" />
+    <p>It's nothing here...</p>
   </div>
 </div>
-
-<div id="english-publications-section">
-  <h2 class="text-2xl font-bold mt-8 mb-4 flex items-center gap-2">
-    <ENIcon />
-    <span>Publikacje angielskie</span>
-  </h2>
-  <div class="list-container">
-    <ul class="publication-list">
-      {englishPublications.map((publication) => (
-      <li class="publication-item">
-        <a href={path.join(baseUrl, 'publications', publication.slug)} class="publication-link">
-          <div>
-            <span class="publication-author text-sm md:text-base">{publication.data.author}</span>
-            <span class="text-base md:text-lg font-semibold">{publication.data.title}</span>
-            <span class="hidden-data" style="display: none;">
-              {publication.data.keywords.join(' ')}
-              {publication.data.abstract}
-              {publication.data.publicationDate}
-            </span>
-          </div>
-          <Icon name="mdi:arrow-right" class="list-arrow-icon" />
-        </a>
-      </li>
-    ))}
-    </ul>
-  </div>
-</div>
-
-<p id="no-results-message" class="no-results-message" style="display: none;">It's nothing here...</p>
 
 <style>
+  .relative-container {
+    position: relative;
+    min-height: 300px; /* Zapewnia minimalną wysokość dla pozycjonowania */
+  }
   .no-results-message {
-    padding: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     font-style: italic;
     opacity: 0.7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.71875rem; /* 3.125rem * 0.55 */
+  }
+  .no-results-icon {
+    font-size: 5.5rem; /* 10rem * 0.55 */
   }
   .publication-item.hidden {
     display: none;
@@ -87,18 +109,10 @@ const englishPublications = publications.filter(p => p.data.lang === 'en');
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
     const searchBar = document.getElementById('search-bar');
-    const polishSection = document.getElementById('polish-publications-section');
-    const englishSection = document.getElementById('english-publications-section');
+    const publicationsWrapper = document.getElementById('publications-wrapper');
+    const noResultsMessage = document.getElementById('no-results-message');
     const publicationItems = Array.from(document.querySelectorAll('.publication-item'));
     const animations = new Map();
-
-    const updateSectionVisibility = () => {
-      const visiblePolish = polishSection.querySelectorAll('.publication-item:not(.hidden)').length;
-      const visibleEnglish = englishSection.querySelectorAll('.publication-item:not(.hidden)').length;
-
-      polishSection.style.display = visiblePolish > 0 ? '' : 'none';
-      englishSection.style.display = visibleEnglish > 0 ? '' : 'none';
-    };
 
     searchBar.addEventListener('input', (e) => {
       const searchTerm = e.target.value.toLowerCase().trim();
@@ -144,21 +158,16 @@ const englishPublications = publications.filter(p => p.data.lang === 'en');
       });
 
       Promise.all(animationPromises).then(() => {
-        updateSectionVisibility();
-
         const visibleCount = publicationItems.filter(item => !item.classList.contains('hidden')).length;
-        const noResultsMessage = document.getElementById('no-results-message');
-        if (noResultsMessage) {
-          if (visibleCount === 0 && searchTerm) {
-            noResultsMessage.style.display = 'block';
-          } else {
-            noResultsMessage.style.display = 'none';
-          }
+        
+        if (visibleCount === 0 && searchTerm) {
+          publicationsWrapper.style.display = 'none';
+          noResultsMessage.style.display = 'flex';
+        } else {
+          publicationsWrapper.style.display = '';
+          noResultsMessage.style.display = 'none';
         }
       });
     });
-
-    // Initial check in case of pre-filled search bar
-    updateSectionVisibility();
   });
 </script>

@@ -10,42 +10,182 @@ const currentProjects = projects.filter(p => p.data.status === 'current');
 const pastProjects = projects.filter(p => p.data.status === 'past');
 ---
 
-<h2 class="text-2xl font-bold mt-8 mb-4 flex items-center gap-2">
-  <Icon name="mdi:progress-clock" size={28} />
-  <span>Current Projects</span>
-</h2>
-<div class="list-container">
-  <ul class="project-list">
-    {currentProjects.map((project) => (
-      <li class="project-item">
-        <a href={path.join(baseUrl, 'projects', project.slug)} class="project-link">
-          <div class="project-link-content">
-            <span class="project-title-in-list">{project.data.title}</span>
-            <span class="project-description">{project.data.description}</span>
-          </div>
-          <Icon name="mdi:arrow-right" class="list-arrow-icon" />
-        </a>
-      </li>
-    ))}
-  </ul>
+<div class="relative-container">
+  <div id="projects-wrapper">
+    <div id="current-projects-section">
+      <h2 class="text-2xl font-bold mt-8 mb-4 flex items-center gap-2">
+        <Icon name="mdi:progress-clock" size={28} />
+        <span>Current Projects</span>
+      </h2>
+      <div class="list-container">
+        <ul class="project-list">
+          {currentProjects.map((project) => (
+            <li class="project-item">
+              <a href={path.join(baseUrl, 'projects', project.slug)} class="project-link">
+                <div class="project-link-content">
+                  <span class="project-title-in-list">{project.data.title}</span>
+                  <span class="project-description">{project.data.description}</span>
+                  <span class="hidden-data" style="display: none;">
+                    {project.data.tags?.join(' ')}
+                    {project.data.date}
+                    {project.data.start_date}
+                    {project.data.end_date}
+                    {project.data.investigators?.join(' ')}
+                    {project.data.founding_entity}
+                    {project.data.grant_number}
+                    {project.data.status}
+                  </span>
+                </div>
+                <Icon name="mdi:arrow-right" class="list-arrow-icon" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div id="past-projects-section">
+      <h2 class="text-2xl font-bold mt-8 mb-4 flex items-center gap-2">
+        <Icon name="mdi:check-circle-outline" size={28} />
+        <span>Past Projects</span>
+      </h2>
+      <div class="list-container">
+        <ul class="project-list">
+          {pastProjects.map((project) => (
+            <li class="project-item">
+              <a href={path.join(baseUrl, 'projects', project.slug)} class="project-link">
+                <div class="project-link-content">
+                  <span class="project-title-in-list">{project.data.title}</span>
+                  <span class="project-description">{project.data.description}</span>
+                  <span class="hidden-data" style="display: none;">
+                    {project.data.tags?.join(' ')}
+                    {project.data.date}
+                    {project.data.start_date}
+                    {project.data.end_date}
+                    {project.data.investigators?.join(' ')}
+                    {project.data.founding_entity}
+                    {project.data.grant_number}
+                    {project.data.status}
+                  </span>
+                </div>
+                <Icon name="mdi:arrow-right" class="list-arrow-icon" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="no-results-message" class="no-results-message" style="display: none;">
+    <Icon name="mdi:magnify-close" class="no-results-icon" />
+    <p>It's nothing here...</p>
+  </div>
 </div>
 
-<h2 class="text-2xl font-bold mt-8 mb-4 flex items-center gap-2">
-  <Icon name="mdi:check-circle-outline" size={28} />
-  <span>Past Projects</span>
-</h2>
-<div class="list-container">
-  <ul class="project-list">
-    {pastProjects.map((project) => (
-      <li class="project-item">
-        <a href={path.join(baseUrl, 'projects', project.slug)} class="project-link">
-          <div class="project-link-content">
-            <span class="project-title-in-list">{project.data.title}</span>
-            <span class="project-description">{project.data.description}</span>
-          </div>
-          <Icon name="mdi:arrow-right" class="list-arrow-icon" />
-        </a>
-      </li>
-    ))}
-  </ul>
-</div>
+<style>
+  .relative-container {
+    position: relative;
+    min-height: 300px;
+  }
+  .no-results-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-style: italic;
+    opacity: 0.7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.71875rem;
+  }
+  .no-results-icon {
+    font-size: 5.5rem;
+  }
+  .project-item.hidden {
+    display: none;
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchBar = document.getElementById('search-bar');
+    const projectsWrapper = document.getElementById('projects-wrapper');
+    const noResultsMessage = document.getElementById('no-results-message');
+    const currentSection = document.getElementById('current-projects-section');
+    const pastSection = document.getElementById('past-projects-section');
+    const projectItems = Array.from(document.querySelectorAll('.project-item'));
+    const animations = new Map();
+
+    const updateSectionVisibility = () => {
+      const visibleCurrent = currentSection.querySelectorAll('.project-item:not(.hidden)').length;
+      const visiblePast = pastSection.querySelectorAll('.project-item:not(.hidden)').length;
+
+      currentSection.style.display = visibleCurrent > 0 ? '' : 'none';
+      pastSection.style.display = visiblePast > 0 ? '' : 'none';
+    };
+
+    searchBar.addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase().trim();
+      const searchTokens = searchTerm.split(' ').filter(token => token);
+      const animationPromises = [];
+
+      projectItems.forEach(item => {
+        const title = item.querySelector('.project-title-in-list')?.textContent.toLowerCase().trim() || '';
+        const description = item.querySelector('.project-description')?.textContent.toLowerCase().trim() || '';
+        const hiddenData = item.querySelector('.hidden-data')?.textContent.toLowerCase().trim() || '';
+        const projectText = `${title} ${description} ${hiddenData}`;
+        
+        const isVisible = searchTokens.every(token => projectText.includes(token));
+        const isHidden = item.classList.contains('hidden');
+
+        if (animations.has(item)) {
+          animations.get(item).cancel();
+        }
+
+        if (isVisible && isHidden) {
+          item.classList.remove('hidden');
+          const animation = item.animate([
+            { opacity: 0 },
+            { opacity: 1 }
+          ], { duration: 300, easing: 'ease-out' });
+          animations.set(item, animation);
+        } else if (!isVisible && !isHidden) {
+          const animation = item.animate([
+            { opacity: 1 },
+            { opacity: 0 }
+          ], { duration: 300, easing: 'ease-in' });
+          animations.set(item, animation);
+          
+          const promise = new Promise(resolve => {
+            animation.onfinish = () => {
+              item.classList.add('hidden');
+              animations.delete(item);
+              resolve(null);
+            };
+          });
+          animationPromises.push(promise);
+        }
+      });
+
+      Promise.all(animationPromises).then(() => {
+        updateSectionVisibility();
+        const visibleCount = projectItems.filter(item => !item.classList.contains('hidden')).length;
+        
+        if (visibleCount === 0 && searchTerm) {
+          projectsWrapper.style.display = 'none';
+          noResultsMessage.style.display = 'flex';
+        } else {
+          projectsWrapper.style.display = '';
+          noResultsMessage.style.display = 'none';
+        }
+      });
+    });
+
+    // Initial check
+    updateSectionVisibility();
+  });
+</script>
