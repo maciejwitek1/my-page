@@ -37,8 +37,22 @@ import MenuBar from "../components/MenuBar.astro";
         font-size: 1rem;
         color: var(--color-fg);
         text-decoration: none;
-        opacity: 0.5;
+        opacity: 0.9;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        background-color: rgba(var(--color-bg-rgb), 0.95);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
       }
+
+      @media (max-width: 1280px) {
+        .logo {
+          left: auto;
+          right: 5rem; /* Adjust this value to position the logo next to the menu button */
+          top: 1.5rem;
+        }
+      }
+      
       body {
         background-color: var(--color-bg);
         color: var(--color-fg);
