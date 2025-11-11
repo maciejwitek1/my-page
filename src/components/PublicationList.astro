@@ -111,8 +111,18 @@ const englishPublications = publications.filter(p => p.data.lang === 'en');
     const searchBar = document.getElementById('search-bar');
     const publicationsWrapper = document.getElementById('publications-wrapper');
     const noResultsMessage = document.getElementById('no-results-message');
+    const polishSection = document.getElementById('polish-publications-section');
+    const englishSection = document.getElementById('english-publications-section');
     const publicationItems = Array.from(document.querySelectorAll('.publication-item'));
     const animations = new Map();
+
+    const updateSectionVisibility = () => {
+      const visiblePolish = polishSection.querySelectorAll('.publication-item:not(.hidden)').length;
+      const visibleEnglish = englishSection.querySelectorAll('.publication-item:not(.hidden)').length;
+
+      polishSection.style.display = visiblePolish > 0 ? '' : 'none';
+      englishSection.style.display = visibleEnglish > 0 ? '' : 'none';
+    };
 
     searchBar.addEventListener('input', (e) => {
       const searchTerm = e.target.value.toLowerCase().trim();
@@ -158,16 +168,20 @@ const englishPublications = publications.filter(p => p.data.lang === 'en');
       });
 
       Promise.all(animationPromises).then(() => {
+        updateSectionVisibility();
         const visibleCount = publicationItems.filter(item => !item.classList.contains('hidden')).length;
         
         if (visibleCount === 0 && searchTerm) {
-          publicationsWrapper.style.display = 'none';
+          // publicationsWrapper.style.display = 'none'; // This is now handled by updateSectionVisibility
           noResultsMessage.style.display = 'flex';
         } else {
-          publicationsWrapper.style.display = '';
+          // publicationsWrapper.style.display = ''; // This is now handled by updateSectionVisibility
           noResultsMessage.style.display = 'none';
         }
       });
     });
+
+    // Initial check
+    updateSectionVisibility();
   });
 </script>
