@@ -20,10 +20,10 @@ describe('MenuBar Accessibility Tests', () => {
   });
 
   it('should have proper navigation structure', async () => {
-    const parts = await getCollection('parts');
+    const sup_pages = await getCollection('sup_pages');
     const tabs = [
       { href: '/', label: 'Start' },
-      ...parts.map((entry) => ({
+      ...sup_pages.map((entry) => ({
         href: `/${entry.slug}`,
         label: entry.data.title
       }))
@@ -40,10 +40,10 @@ describe('MenuBar Accessibility Tests', () => {
   });
 
   it('should have semantic menu structure', async () => {
-    const parts = await getCollection('parts');
+    const sup_pages = await getCollection('sup_pages');
     const tabs = [
       { href: '/', label: 'Start' },
-      ...parts.map((entry) => ({
+      ...sup_pages.map((entry) => ({
         href: `/${entry.slug}`,
         label: entry.data.title
       }))
@@ -57,10 +57,10 @@ describe('MenuBar Accessibility Tests', () => {
   });
 
   it('should have proper link attributes', async () => {
-    const parts = await getCollection('parts');
+    const sup_pages = await getCollection('sup_pages');
     const tabs = [
       { href: '/', label: 'Start' },
-      ...parts.map((entry) => ({
+      ...sup_pages.map((entry) => ({
         href: `/${entry.slug}`,
         label: entry.data.title
       }))
@@ -80,10 +80,10 @@ describe('MenuBar Accessibility Tests', () => {
 
     (getCollection as any).mockResolvedValue(partsWithSpecialChars);
 
-    const parts = await getCollection('parts');
+    const sup_pages = await getCollection('sup_pages');
     const tabs = [
       { href: '/', label: 'Start' },
-      ...parts.map((entry) => ({
+      ...sup_pages.map((entry) => ({
         href: `/${entry.slug}`,
         label: entry.data.title
       }))
@@ -93,10 +93,10 @@ describe('MenuBar Accessibility Tests', () => {
   });
 
   it('should maintain menu order for screen readers', async () => {
-    const parts = await getCollection('parts');
+    const sup_pages = await getCollection('sup_pages');
     const tabs = [
       { href: '/', label: 'Start' },
-      ...parts.map((entry) => ({
+      ...sup_pages.map((entry) => ({
         href: `/${entry.slug}`,
         label: entry.data.title
       }))
@@ -108,10 +108,10 @@ describe('MenuBar Accessibility Tests', () => {
   });
 
   it('should have consistent structure for all menu items', async () => {
-    const parts = await getCollection('parts');
+    const sup_pages = await getCollection('sup_pages');
     const tabs = [
       { href: '/', label: 'Start' },
-      ...parts.map((entry) => ({
+      ...sup_pages.map((entry) => ({
         href: `/${entry.slug}`,
         label: entry.data.title
       }))

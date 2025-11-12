@@ -30,16 +30,16 @@ describe('getStaticPaths function', () => {
     ]);
   });
 
-  it('should generate paths for all parts', async () => {
-    const paths = mockParts.map((entry) => ({ params: { part: entry.slug } }));
+  it('should generate paths for all sup_pages', async () => {
+    const paths = mockParts.map((entry) => ({ params: { sup_page: entry.slug } }));
 
     expect(paths.length).toBe(mockParts.length);
     mockParts.forEach((part, index) => {
-      expect(paths[index].params.part).toBe(part.slug);
+      expect(paths[index].params.sup_page).toBe(part.slug);
     });
   });
 
-  it('should handle empty parts collection', async () => {
+  it('should handle empty sup_pages collection', async () => {
     (getCollection as any).mockResolvedValue([]);
 
     const paths: any[] = [];

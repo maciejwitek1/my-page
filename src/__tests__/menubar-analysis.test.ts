@@ -23,10 +23,10 @@ describe('MenuBar Component Analysis', () => {
   });
 
   it('should generate menu structure with correct tabs', async () => {
-    const parts = await getCollection('parts');
+    const sup_pages = await getCollection('sup_pages');
     const tabs = [
       { href: '/', label: 'Start' },
-      ...parts.map((entry) => ({
+      ...sup_pages.map((entry) => ({
         href: `/${entry.slug}`,
         label: entry.data.title
       }))
@@ -44,10 +44,10 @@ describe('MenuBar Component Analysis', () => {
   });
 
   it('should have correct number of menu items', async () => {
-    const parts = await getCollection('parts');
+    const sup_pages = await getCollection('sup_pages');
     const tabs = [
       { href: '/', label: 'Start' },
-      ...parts.map((entry) => ({
+      ...sup_pages.map((entry) => ({
         href: `/${entry.slug}`,
         label: entry.data.title
       }))
@@ -56,11 +56,11 @@ describe('MenuBar Component Analysis', () => {
     expect(tabs.length).toBe(mockParts.length + 1); // +1 dla elementu 'Start'
   });
 
-  it('should generate correct hrefs for all parts', async () => {
-    const parts = await getCollection('parts');
+  it('should generate correct hrefs for all sup_pages', async () => {
+    const sup_pages = await getCollection('sup_pages');
     const tabs = [
       { href: '/', label: 'Start' },
-      ...parts.map((entry) => ({
+      ...sup_pages.map((entry) => ({
         href: `/${entry.slug}`,
         label: entry.data.title
       }))
@@ -73,11 +73,11 @@ describe('MenuBar Component Analysis', () => {
     });
   });
 
-  it('should generate correct labels for all parts', async () => {
-    const parts = await getCollection('parts');
+  it('should generate correct labels for all sup_pages', async () => {
+    const sup_pages = await getCollection('sup_pages');
     const tabs = [
       { href: '/', label: 'Start' },
-      ...parts.map((entry) => ({
+      ...sup_pages.map((entry) => ({
         href: `/${entry.slug}`,
         label: entry.data.title
       }))

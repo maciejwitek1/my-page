@@ -20,23 +20,23 @@ describe('MenuBar Unit Tests', () => {
   });
 
   it('should call getCollection with correct collection name', async () => {
-    await getCollection('parts');
+    await getCollection('sup_pages');
 
-    expect(getCollection).toHaveBeenCalledWith('parts');
+    expect(getCollection).toHaveBeenCalledWith('sup_pages');
     expect(getCollection).toHaveBeenCalledTimes(1);
   });
 
-  it('should return all parts from collection', async () => {
-    const parts = await getCollection('parts');
+  it('should return all sup_pages from collection', async () => {
+    const sup_pages = await getCollection('sup_pages');
 
-    expect(parts).toHaveLength(mockParts.length);
-    expect(parts).toEqual(mockParts);
+    expect(sup_pages).toHaveLength(mockParts.length);
+    expect(sup_pages).toEqual(mockParts);
   });
 
-  it('should map parts to menu items correctly', async () => {
-    const parts = await getCollection('parts');
+  it('should map sup_pages to menu items correctly', async () => {
+    const sup_pages = await getCollection('sup_pages');
 
-    const menuItems = parts.map((entry) => ({
+    const menuItems = sup_pages.map((entry) => ({
       href: `/${entry.slug}`,
       label: entry.data.title
     }));
@@ -49,11 +49,11 @@ describe('MenuBar Unit Tests', () => {
   });
 
   it('should include Start item at the beginning', async () => {
-    const parts = await getCollection('parts');
+    const sup_pages = await getCollection('sup_pages');
 
     const tabs = [
       { href: '/', label: 'Start' },
-      ...parts.map((entry) => ({
+      ...sup_pages.map((entry: any) => ({
         href: `/${entry.slug}`,
         label: entry.data.title
       }))
@@ -62,16 +62,16 @@ describe('MenuBar Unit Tests', () => {
     expect(tabs[0]).toEqual({ href: '/', label: 'Start' });
   });
 
-  it('should handle empty parts collection', async () => {
+  it('should handle empty sup_pages collection', async () => {
     (getCollection as any).mockResolvedValue([]);
 
-    const parts = await getCollection('parts');
+    const sup_pages = await getCollection('sup_pages');
 
-    expect(parts).toHaveLength(0);
+    expect(sup_pages).toHaveLength(0);
 
     const tabs = [
       { href: '/', label: 'Start' },
-      ...parts.map((entry) => ({
+      ...sup_pages.map((entry: any) => ({
         href: `/${entry.slug}`,
         label: entry.data.title
       }))
@@ -80,15 +80,15 @@ describe('MenuBar Unit Tests', () => {
     expect(tabs).toEqual([{ href: '/', label: 'Start' }]);
   });
 
-  it('should handle parts with special characters in title', async () => {
+  it('should handle sup_pages with special characters in title', async () => {
     const specialParts = [
       { slug: 'test', data: { id: 'test', title: 'Test & Special <>' } }
     ];
 
     (getCollection as any).mockResolvedValue(specialParts);
 
-    const parts = await getCollection('parts');
-    const menuItems = parts.map((entry) => ({
+    const sup_pages = await getCollection('sup_pages');
+    const menuItems = sup_pages.map((entry: any) => ({
       href: `/${entry.slug}`,
       label: entry.data.title
     }));

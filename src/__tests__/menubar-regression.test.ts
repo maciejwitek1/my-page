@@ -25,16 +25,16 @@ describe('Menu Regression Tests', () => {
 
     (getCollection as any).mockResolvedValue(newParts);
 
-    const parts = await getCollection('parts');
+    const sup_pages = await getCollection('sup_pages');
     const tabs = [
       { href: '/', label: 'Start' },
-      ...parts.map((entry) => ({
+      ...sup_pages.map((entry) => ({
         href: `/${entry.slug}`,
         label: entry.data.title
       }))
     ];
 
-    expect(tabs.length).toBe(4); // Start + 3 parts
+    expect(tabs.length).toBe(4); // Start + 3 sup_pages
     expect(tabs[3].label).toBe('Part 3');
     expect(tabs[3].href).toBe('/part-3');
   });
@@ -50,16 +50,16 @@ describe('Menu Regression Tests', () => {
 
     (getCollection as any).mockResolvedValue(reducedParts);
 
-    const parts = await getCollection('parts');
+    const sup_pages = await getCollection('sup_pages');
     const tabs = [
       { href: '/', label: 'Start' },
-      ...parts.map((entry) => ({
+      ...sup_pages.map((entry) => ({
         href: `/${entry.slug}`,
         label: entry.data.title
       }))
     ];
 
-    expect(tabs.length).toBe(3); // Start + 2 parts
+    expect(tabs.length).toBe(3); // Start + 2 sup_pages
     expect(tabs.find(tab => tab.href === '/part-3')).toBeUndefined();
   });
 
@@ -71,10 +71,10 @@ describe('Menu Regression Tests', () => {
 
     (getCollection as any).mockResolvedValue(partsWithModifiedTitle);
 
-    const parts = await getCollection('parts');
+    const sup_pages = await getCollection('sup_pages');
     const tabs = [
       { href: '/', label: 'Start' },
-      ...parts.map((entry) => ({
+      ...sup_pages.map((entry) => ({
         href: `/${entry.slug}`,
         label: entry.data.title
       }))
@@ -92,10 +92,10 @@ describe('Menu Regression Tests', () => {
 
     (getCollection as any).mockResolvedValue(partsWithModifiedSlug);
 
-    const parts = await getCollection('parts');
+    const sup_pages = await getCollection('sup_pages');
     const tabs = [
       { href: '/', label: 'Start' },
-      ...parts.map((entry) => ({
+      ...sup_pages.map((entry) => ({
         href: `/${entry.slug}`,
         label: entry.data.title
       }))
@@ -114,10 +114,10 @@ describe('Menu Regression Tests', () => {
 
     (getCollection as any).mockResolvedValue(partsWithEmptyTitle);
 
-    const parts = await getCollection('parts');
+    const sup_pages = await getCollection('sup_pages');
     const tabs = [
       { href: '/', label: 'Start' },
-      ...parts.map((entry) => ({
+      ...sup_pages.map((entry) => ({
         href: `/${entry.slug}`,
         label: entry.data.title
       }))
@@ -135,10 +135,10 @@ describe('Menu Regression Tests', () => {
 
     (getCollection as any).mockResolvedValue(partsWithMissingTitle);
 
-    const parts = await getCollection('parts');
+    const sup_pages = await getCollection('sup_pages');
     const tabs = [
       { href: '/', label: 'Start' },
-      ...parts.map((entry) => ({
+      ...sup_pages.map((entry) => ({
         href: `/${entry.slug}`,
         label: entry.data.title
       }))

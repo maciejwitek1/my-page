@@ -1,5 +1,5 @@
 ---
-// Pasek menu zintegrowany z kolekcją parts
+// Pasek menu zintegrowany z kolekcją sup_pages
 import { getCollection } from 'astro:content';
 import path from 'path-browserify';
 import ThemeSwitcher from './ThemeSwitcher.astro';
@@ -9,7 +9,7 @@ export interface Props {
 }
 const { currentPage } = Astro.props;
 
-const parts = await getCollection('parts');
+const sup_pages = await getCollection('sup_pages');
 const baseUrl = import.meta.env.BASE_URL;
 
 // Normalizujemy ścieżkę, usuwając końcowy ukośnik, jeśli istnieje i nie jest to root.
@@ -19,7 +19,7 @@ const normalizedPath = currentPage.length > 1 && currentPage.endsWith('/')
 
 const tabs = [
   { href: baseUrl, label: 'ABOUT', isActive: normalizedPath === baseUrl || normalizedPath === `${baseUrl}/` },
-  ...parts.map((entry) => {
+  ...sup_pages.map((entry) => {
     const href = path.join(baseUrl, entry.slug);
     return {
       href,

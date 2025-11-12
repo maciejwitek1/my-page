@@ -29,7 +29,7 @@ const bio = defineCollection({
   })
 })
 
-const parts = defineCollection({
+const sup_pages = defineCollection({
   type: 'content',
   schema: z.object({
     id: z.string(),
@@ -78,4 +78,4 @@ const publications = defineCollection({
   })
 });
 
-export const collections = { bio, parts, hidden, projects, publications }
+export const collections = { bio, sup_pages, hidden, projects, publications }

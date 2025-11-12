@@ -22,11 +22,11 @@ describe('Menu Integration Tests', () => {
     (getCollection as any).mockResolvedValue(mockParts);
   });
 
-  it('should include all parts in menu', async () => {
-    const parts = await getCollection('parts');
+  it('should include all sup_pages in menu', async () => {
+    const sup_pages = await getCollection('sup_pages');
     const tabs = [
       { href: '/', label: 'Start' },
-      ...parts.map((entry) => ({
+      ...sup_pages.map((entry) => ({
         href: `/${entry.slug}`,
         label: entry.data.title
       }))
@@ -41,10 +41,10 @@ describe('Menu Integration Tests', () => {
   });
 
   it('should have correct menu order', async () => {
-    const parts = await getCollection('parts');
+    const sup_pages = await getCollection('sup_pages');
     const tabs = [
       { href: '/', label: 'Start' },
-      ...parts.map((entry) => ({
+      ...sup_pages.map((entry) => ({
         href: `/${entry.slug}`,
         label: entry.data.title
       }))
@@ -61,23 +61,23 @@ describe('Menu Integration Tests', () => {
   });
 
   it('should have correct number of menu items', async () => {
-    const parts = await getCollection('parts');
+    const sup_pages = await getCollection('sup_pages');
     const tabs = [
       { href: '/', label: 'Start' },
-      ...parts.map((entry) => ({
+      ...sup_pages.map((entry) => ({
         href: `/${entry.slug}`,
         label: entry.data.title
       }))
     ];
 
-    expect(tabs.length).toBe(7); // 1 Start + 6 parts
+    expect(tabs.length).toBe(7); // 1 Start + 6 sup_pages
   });
 
   it('should generate valid URLs for all menu items', async () => {
-    const parts = await getCollection('parts');
+    const sup_pages = await getCollection('sup_pages');
     const tabs = [
       { href: '/', label: 'Start' },
-      ...parts.map((entry) => ({
+      ...sup_pages.map((entry) => ({
         href: `/${entry.slug}`,
         label: entry.data.title
       }))
@@ -91,10 +91,10 @@ describe('Menu Integration Tests', () => {
   });
 
   it('should have unique hrefs for all menu items', async () => {
-    const parts = await getCollection('parts');
+    const sup_pages = await getCollection('sup_pages');
     const tabs = [
       { href: '/', label: 'Start' },
-      ...parts.map((entry) => ({
+      ...sup_pages.map((entry) => ({
         href: `/${entry.slug}`,
         label: entry.data.title
       }))
@@ -107,10 +107,10 @@ describe('Menu Integration Tests', () => {
   });
 
   it('should have unique labels for all menu items', async () => {
-    const parts = await getCollection('parts');
+    const sup_pages = await getCollection('sup_pages');
     const tabs = [
       { href: '/', label: 'Start' },
-      ...parts.map((entry) => ({
+      ...sup_pages.map((entry) => ({
         href: `/${entry.slug}`,
         label: entry.data.title
       }))

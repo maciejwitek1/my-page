@@ -4,7 +4,7 @@ import { vi } from 'vitest';
 // Mock dla astro:content
 vi.mock('astro:content', () => ({
   getCollection: vi.fn((collection: string) => {
-    if (collection === 'parts') {
+    if (collection === 'sup_pages') {
       return [
         {
           slug: 'part-1',

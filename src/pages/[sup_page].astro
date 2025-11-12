@@ -3,13 +3,13 @@ import MainLayout from "@layouts/MainLayout.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const parts = await getCollection("parts");
-  return parts.map((entry) => ({ params: { part: entry.slug } }));
+  const sup_pages = await getCollection("sup_pages");
+  return sup_pages.map((entry) => ({ params: { sup_page: entry.slug } }));
 }
 
-const { part } = Astro.params;
-const parts = await getCollection("parts");
-const entry = parts.find((p) => p.slug === part);
+const { sup_page } = Astro.params;
+const sup_pages = await getCollection("sup_pages");
+const entry = sup_pages.find((p) => p.slug === sup_page);
 
 if (!entry) {
   return Astro.redirect("/part-1");
