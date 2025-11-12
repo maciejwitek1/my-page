@@ -53,8 +53,8 @@ const tabs = [
     </ul>
   </nav>
   <div class="themeswitcher-container">
-    <span class="themeswitcher-label">theme</span>
     <ThemeSwitcher />
+    <span class="themeswitcher-label">Toggle theme</span>
   </div>
 </div>
 
@@ -89,7 +89,7 @@ const tabs = [
 
   .menu-list {
     list-style: none;
-    padding: 0;
+    padding-top: 4rem;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -160,6 +160,10 @@ const tabs = [
       transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     }
 
+    .menu-list {
+      padding-top: 1.5rem;
+    }
+
 
     .menu-list li a {
       font-size: 1.2rem; /* Mniejsza czcionka w menu mobilnym */
@@ -178,11 +182,11 @@ const tabs = [
   .themeswitcher-container {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
     gap: 0.75rem;
     position: absolute;
     bottom: 1rem;
-    right: 1rem;
+    left: 1rem;
     width: auto; /* Szerokość dopasuje się do zawartości */
     padding: 0.5rem 1rem; /* Wewnętrzny padding */
     background-color: var(--menu-color); /* Użycie zmiennej CSS */
@@ -198,9 +202,9 @@ const tabs = [
 
   @media (max-width: 1280px) {
     .themeswitcher-container {
-      justify-content: flex-end; /* Przesunięcie do prawej */
+      justify-content: flex-start; /* Przesunięcie do lewej */
       width: auto; /* Szerokość auto, jak na desktopie */
-      right: 1rem; /* Ustawienie pozycji od prawej */
+      left: 1rem; /* Ustawienie pozycji od lewej */
       bottom: 1rem; /* Ustawienie pozycji od dołu */
     }
   }
