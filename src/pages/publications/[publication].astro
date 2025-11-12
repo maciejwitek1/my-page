@@ -18,12 +18,11 @@ const { Content } = await entry.render();
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8">
     <article class="prose dark:prose-invert max-w-none md:col-span-3">
       <header>
-        <div class="mb-2 p-4 rounded-lg bg-secondary">
-          <p class="text-base text-gray-600 dark:text-gray-400">
-            {entry.data.author}, {new Date(entry.data.publicationDate).toLocaleDateString(entry.data.lang, { year: 'numeric', month: 'long', day: 'numeric' })}
-          </p>
+        <h1 class="project-title mb-4">{entry.data.title}</h1>
+        <div class="text-xl text-text font-semibold mt-2 mb-8">
+          <p>author: {entry.data.author}</p>
+          <p>publication date: {new Date(entry.data.publicationDate).toLocaleDateString(entry.data.lang, { year: 'numeric', month: 'long', day: 'numeric' })}</p>
         </div>
-        <h1 class="project-title mb-8">{entry.data.title}</h1>
       </header>
 
       <section class="mb-8 p-6 rounded-lg bg-secondary">
