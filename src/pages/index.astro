@@ -74,7 +74,7 @@ if (bio[0]) {
      
     </div>
     <div class="mt-1 lg:mt-2 flex w-full justify-center lg:justify-start">
-      <div class="prose dark:prose-invert w-full lg:w-[31%]">
+      <div class="prose dark:prose-invert w-full 2xl:w-[30%] xl:w-[40%]">
         <p>
           {person.socialLinks && person.socialLinks.map((link: { href: string; text: string }) => (
             <a href={link.href} target="_blank" rel="noopener noreferrer" class="mr-2 mb-2">{link.text}</a>
@@ -202,7 +202,23 @@ if (bio[0]) {
     justify-content: center;
     gap: 1rem;
     margin-top: 1.5rem;
-    margin-bottom: 0.3rem;
+    /* margin-bottom: 0.3rem; Usunięto margines, aby wyrównać do dołu */
+  }
+
+  /* --- Stylizacja obrazka tylko dla widoku desktopowego --- */
+  @media (min-width: 992px) {
+    .image-wrapper {
+      width: 22vw;
+      height: 22vw;
+      max-width: 450px;
+      max-height: 450px;
+      min-width: 280px; /* Zwiększono min-width dla lepszego wyglądu */
+      min-height: 280px;
+    }
+    .bio-image {
+      height: 100%; /* Aby wypełnić wrapper */
+      object-fit: cover;
+    }
   }
 
   @media (min-width: 992px) and (max-width: 1400px) {
