@@ -48,7 +48,7 @@ Zanim zaczniesz pracę, musisz jednorazowo "przedstawić się" systemowi Git. Dz
     git config --global user.email "twoj-adres@email.com"
     ```
 
-To wszystko. Ta konfiguracja jest jednorazowa i zostanie zapamiętana dla wszystkich Twoich przyszłych projektów.
+To wszystko. Ta konfiguracja jest jednorazowa i zostanie zapamiętana na skonfigurowanym komputerze.
 
 ### 1.5. Pobranie plików strony
 
