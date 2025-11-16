@@ -1,6 +1,6 @@
 # Krok 2: Jak zarządzać plikami?
 
-Cała treść Twojej strony znajduje się w plikach z rozszerzeniem `.mdx`. W tym rozdziale dowiesz się, jak je edytować, dodawać i usuwać.
+Cała treść Twojej strony znajduje się w plikach z rozszerzeniem `.mdx`, które znajdują się w katalogu `content`. W tym rozdziale dowiesz się, jak je edytować, dodawać i usuwać.
 
 ### 2.1. Budowa pliku `.mdx`
 
@@ -42,4 +42,4 @@ Każdy plik z treścią ma dwuczęściową budowę, która pozwala elastycznie z
 
 Warto wiedzieć, że strona została zaprojektowana tak, aby ułatwić Ci pracę.
 
-Gdy dodasz nowy plik `.mdx` do folderu z projektami lub publikacjami i uzupełnisz go wymaganymi danymi, system automatycznie utworzy dla niego nową podstronę i doda odpowiedni wpis na liście zbiorczej. Nie musisz wykonywać żadnych dodatkowych kroków – wystarczy, że stworzysz plik z treścią i opublikujesz zmiany na GitHub.
+Gdy dodasz nowy plik `.mdx` do folderu z projektami lub publikacjami i uzupełnisz go wymaganymi danymi, po zapisaniu i opublikowaniu zmian (commit i push) system automatycznie utworzy dla niego nową podstronę i doda odpowiedni wpis na liście zbiorczej. Nie musisz wykonywać żadnych dodatkowych kroków – wystarczy, że stworzysz plik z treścią i opublikujesz zmiany na GitHub.
