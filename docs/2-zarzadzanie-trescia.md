@@ -10,7 +10,7 @@ Każdy plik z treścią ma dwuczęściową budowę, która pozwala elastycznie z
 
    
 
-*   **Treść właściwa (dolna część):** To przestrzeń przeznaczona na **duże bloki tekstu**, gdzie potrzebna jest większa swoboda formatowania (np. akapity, listy, nagłówki). Choć w niektórych typach treści (jak projekty czy publikacje) ta część bywa pusta, pełni ona ważną rolę i jest niezbędna do prawidłowego działania systemu.
+*   **Treść właściwa (dolna część):** To przestrzeń przeznaczona na **duże bloki tekstu**, gdzie potrzebna jest większa swoboda formatowania (np. akapity, listy, nagłówki). Choć w niektórych typach treści (jak publikacje) ta część bywa pusta, pełni ona ważną rolę.
 
 ![Przykład bloku metadanych w pliku MDX](images/example-mdx-1.png)
 
@@ -18,7 +18,8 @@ Każdy plik z treścią ma dwuczęściową budowę, która pozwala elastycznie z
 
 ### 2.2. Edycja istniejącej treści
 
-1.  W panelu plików po lewej stronie VS Code znajdź i otwórz plik, który chcesz zmodyfikować.
+1.  W panelu plików po lewej stronie VS Code znajdź katalog `content` i otwórz plik, który chcesz zmodyfikować.
+![Widok folderu content](images/content-folder.png)
 2.  Wprowadź potrzebne zmiany w tekście.
 3.  Zapisz plik za pomocą skrótu `Ctrl + S` (Windows) lub `Cmd + S` (macOS).
 
@@ -35,10 +36,10 @@ Każdy plik z treścią ma dwuczęściową budowę, która pozwala elastycznie z
 2.  Wybierz opcję **"Delete"** i potwierdź swój wybór.
 
 
-**UWAGA. Aby jaka kolwiek zmiana była widoczna na stronie, należy opublikować nową wersję kodu w repozytorium git. Instrukcja jak to zrobić, znajduje się w [Krok 4: Publikacja Zmian](4-publikacja-zmian.md)**
+**UWAGA. Aby jaka kolwiek zmiana była widoczna na stronie, należy opublikować nową wersję kodu w repozytorium GitHub. Instrukcja jak to zrobić, znajduje się w [Krok 4: Publikacja Zmian](4-publikacja-zmian.md)**
 
-### 2.5. Automatyczne tworzenie podstron
+### 2.5. Automatyczne tworzenie podstron i tworzenie nowych elementów list projektów i publikacji
 
 Warto wiedzieć, że strona została zaprojektowana tak, aby ułatwić Ci pracę.
 
-Gdy dodasz nowy plik `.mdx` do folderu z projektami lub publikacjami, system automatycznie utworzy dla niego nową podstronę i doda odpowiedni wpis na liście zbiorczej. Nie musisz wykonywać żadnych dodatkowych kroków – wystarczy, że stworzysz plik z treścią.
+Gdy dodasz nowy plik `.mdx` do folderu z projektami lub publikacjami i uzupełnisz go wymaganymi danymi, system automatycznie utworzy dla niego nową podstronę i doda odpowiedni wpis na liście zbiorczej. Nie musisz wykonywać żadnych dodatkowych kroków – wystarczy, że stworzysz plik z treścią i opublikujesz zmiany na GitHub.

@@ -19,7 +19,7 @@ type: "current"
 -   `description`: Zwięzły opis, który reprezentuje wpis na stronach zbiorczych (np. na liście wszystkich projektów).
 -   `type`: Kategoria, która pomaga w grupowaniu treści. Dla projektów możesz użyć `current` (dla bieżących) lub `past` (dla archiwalnych).
 
-Prawidłowe i spójne wypełnianie metadanych jest ważne dla porządku i czytelności strony.
+Prawidłowe i spójne wypełnianie metadanych jest ważne dla właściwego działania strony.
 
 ### 3.2. Lokalizacja plików
 

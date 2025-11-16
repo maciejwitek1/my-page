@@ -7,6 +7,7 @@ Witaj! Ten rozdział pomoże Ci jednorazowo skonfigurować komputer, abyś móg�
 **GitHub** to serwis, na którym przechowywany jest kod Twojej strony. Umożliwia on bezpieczne zarządzanie plikami i śledzenie wszystkich wprowadzanych zmian.
 
 1.  Odwiedź stronę [https://github.com/](https://github.com/).
+![Ekran główny GitHub](images/github-first-screen.png)
 2.  Załóż darmowe konto, postępując według wyświetlanych tam wskazówek.
 
 ![Ekran zakładania konta na GitHub](images/github-sign-up-screen.png)
