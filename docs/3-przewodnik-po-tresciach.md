@@ -1,10 +1,10 @@
-# Krok 3: Gdzie znaleźć i edytować treść?
+# Krok 3: Gdzie znaleźć i jak edytować treść?
 
-Ten rozdział pomoże Ci zlokalizować pliki `.mdx` odpowiedzialne za konkretne sekcje na stronie.
+Ten rozdział pomoże Ci zlokalizować pliki `.mdx` odpowiedzialne za konkretne sekcje na stronie i opisze Ci ich zawartość
 
 ### 3.1. Znaczenie metadanych
 
-Jak już wiesz, każdy plik `.mdx` zaczyna się od sekcji metadanych. Poniżej znajdziesz przypomnienie i wyjaśnienie najważniejszych pól:
+Jak już wiesz, każdy plik `.mdx` zaczyna się od sekcji metadanych. Poniżej znajdziesz przypomnienie poprawnego zapisu:
 
 **Przykład:**
 ```
@@ -15,11 +15,7 @@ type: "current"
 ---
 ```
 
--   `title`: Oficjalny tytuł Twojego projektu lub publikacji.
--   `description`: Zwięzły opis, który reprezentuje wpis na stronach zbiorczych (np. na liście wszystkich projektów).
--   `type`: Kategoria, która pomaga w grupowaniu treści. Dla projektów możesz użyć `current` (dla bieżących) lub `past` (dla archiwalnych).
-
-Prawidłowe i spójne wypełnianie metadanych jest ważne dla właściwego działania strony.
+Prawidłowe i spójne wypełnianie metadanych jest ważne dla właściwego działania strony. Jeżeli w składni tego zapisu pojawi się błąd, strona nie zbuduje się prawidłowo
 
 ### 3.2. Lokalizacja plików
 
@@ -43,7 +39,7 @@ Oto lista najważniejszych miejsc, w których znajdziesz pliki do edycji:
 
 ### 3.3. Metadane i ich walidacja
 
-Każdy rodzaj treści (biografia, projekt, publikacja) posiada własny, ściśle zdefiniowany zestaw metadanych. Jest to kluczowe dla spójności i poprawnego działania strony. Poniżej znajdziesz szczegółowy opis wymaganych i opcjonalnych pól dla każdej sekcji.
+Każdy rodzaj treści (biografia, projekt, publikacja) posiada własny, ściśle zdefiniowany zestaw metadanych. Jest to kluczowe dla spójności i poprawnego działania strony. Poniżej znajdziesz szczegółowy opis wymaganych i opcjonalnych pól dla każdej sekcji. Kolejność podawania metadanych w pliku nie ma znaczenia
 
 **Ważne:** System automatycznie weryfikuje poprawność metadanych. Jeśli pominiesz wymagane pole, podasz je z błędem lub dodasz pole, które nie jest zdefiniowane w konfiguracji, strona nie zostanie opublikowana, a w interfejsie GitHub Desktop lub na stronie GitHub zobaczysz komunikat o błędzie.
 
@@ -61,6 +57,10 @@ Każdy rodzaj treści (biografia, projekt, publikacja) posiada własny, ściśle
     -   `cv_url`: Link do CV.
     -   `contact`: Dane kontaktowe (telefon, e-mail, adres).
     -   `socialLinks`: Lista linków do mediów społecznościowych.
+
+Strona ABOUT jako jedyna ma specyficzną, ale prostą budowę metadanych. Mimo to, na wszelki wypadek zamieszczone jest zdjęcie przedstawiające prawidłowy układ metadanych w pliku `index.mdx`:
+
+![Przykład metadanych w pliku index.mdx](images/index-mdx-metadata.png)
 
 ---
 
