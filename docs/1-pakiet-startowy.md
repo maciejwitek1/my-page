@@ -9,8 +9,11 @@ Witaj! Ten rozdział pomoże Ci jednorazowo skonfigurować komputer, abyś móg�
 1.  Odwiedź stronę [https://github.com/](https://github.com/).
 ![Ekran główny GitHub](images/github-first-screen.png)
 2.  Załóż darmowe konto, postępując według wyświetlanych tam wskazówek.
-
 ![Ekran zakładania konta na GitHub](images/github-sign-up-screen.png)
+3.  Zaakceptuj zaproszenie do projektu, które otrzymałeś w formie linku.
+4.  W panelu głównym (Dashboard) GitHuba, po lewej stronie, znajdziesz listę projektów (repozytoriów), do których masz dostęp. Kliknij w nazwę repozytorium, nad którym chcesz pracować. Po wejściu w repozytorium twojego projektu powinieneś zobaczyć taki interfejs :
+
+![Strona repo GitHub](images/repo-dashbord-screen.png)
 
 ### 1.2. Edytor Visual Studio Code (VS Code)
 
