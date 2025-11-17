@@ -55,6 +55,7 @@ Najnowsza zmiana jest widoczna od razu na głównej stronie projektu w sekcji **
 - **Czerwony "krzyżyk"** oznacza, że wystąpił błąd.
 
 ![Widok poprawnie wdrożonej zmiany na stronie projektu](images/repo-dashbord-screen.png)
+![Błąd budowania widoczny na stronie projektu](images/github-build-error.png)
 
 ### Historia i szczegóły wdrożeń (zakładka Actions)
 
@@ -100,4 +101,4 @@ Gdy zobaczysz błąd, pierwszym krokiem jest zrozumienie, co go spowodowało.
 
     ![Podsumowanie zmian w commicie](images/changes-summary-screen.png)
 
-W powyższym przykładzie widać, że błąd polegał na **usunięciu obowiązkowych pól** (`title`, `abstract`) i **dodaniu jednego, nieistniejącego pola** (`example`). Taka zmiana w metadanych sprawiła, że strona nie mogła się poprawnie zbudować.
+W powyższym przykładzie widać, że błąd polegał na **usunięciu obowiązkowych pól** (`title`, `abstract`) i **dodaniu jednego, nieistniejącego pola** (`example`). Taka zmiana w metadanych sprawiła, że strona nie mogła się poprawnie zbudować. O zasadach poprawnego edytowania plików mdx patrz w [Kroku 3](3-przewodnik-po-tresciach.md)
