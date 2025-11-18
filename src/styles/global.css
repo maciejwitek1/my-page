@@ -85,7 +85,7 @@ html[data-theme='light'] {
 }
 .prose p a:hover {
   background-color: var(--text);
-  color: var(--link-color);
+  color: var(--primary);
 }
 
 .h1-global {
@@ -323,6 +323,6 @@ html[data-theme='light'] {
 }
 
 /* Force text color for prose content */
-.prose :where(h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, strong, em):not(:where([class~="not-prose"] *)) {
+.prose :where(h1, h2, h3, h4, h5, h6, p, ul, ol, li, strong, em):not(:where([class~="not-prose"] *)) {
   color: var(--text) !important;
 }
