@@ -86,39 +86,61 @@ Teraz możesz pobrać pliki strony na swój komputer.
 Świetnie, wszystko gotowe. Pliki strony znajdują się teraz na Twoim komputerze i możesz przystąpić do ich edycji.
 
 ---
-# Droga alternatywna - vs code online.
+## Droga alternatywna – VS Code Online
 
-Zero instalacji zewnętrznych programów na komputer. Wszystko z przeglądarki.
+Zero instalacji żadnych programów na komputerze, wszystko z przeglądarki.
 
-1. Tak samo, jak w pierwszej opcji, musisz założyć konto na GitHub i wejść do repozytorium z kodem strony (Patrz na samej górze)
+---
 
-2. Otwórz stronę https://vscode.dev
-![Ekran VS Code Online](images/vs-code-online-screen.png)
+1.  Tak samo jak w pierwszej opcji, trzeba założyć konto na GitHubie i wejść do repozytorium z kodem strony (patrz na samej górze).
 
-3. Wejdź do zakładki Source Controle na lewym Menu i wybierz "Otwórz repozytorium zdalne"
-![Klonowanie repozytorium online](images/clone-repo-online.png)
+---
 
-4. Proces klonowania repozytorium wygląda niemal tak samo jak w lokalnej wersji vs code. Wklej adres URL repozytorium w pole, które pojawi się na górze strony
+2.  Otwórz stronę https://vscode.dev.
+    ![Ekran VS Code Online](images/vs-code-online-screen.png)
 
-5. Po kliknięciu "Enter" strona pokaże taki komunikat :
-![Komunikat logowania do GitHub](images/login-github-agree.png)
-Kliknij "Zezwól"
 
-6. Teraz musisz zalogować się swoim loginem i hasłem do serwisu GitHub :
-![Logowanie do GitHub w VS Code](images/login-vs-code-github.png)
 
-7. Możliwe, że repozytorium nie skopiuje się od razu. Wtedy trzeba powtórzyć cały proces. Jeszcze raz kliknij "Otwórz repozytorium zdalne"
-![Klonowanie repozytorium online](images/clone-repo-online.png). W okienku, które pojawi się na górze, wybierz opcje "Otwórz repozytorium GitHub". Pojawi się lista repozytoriów przypisanych do konta na które się zalogowałeś. Wybierz swoje repozytorium. Proces klonowania plików potrwa około minuty
+3.  Wejdź do zakładki Source Control na lewym menu i wybierz „Otwórz repozytorium zdalne”.
+    ![Klonowanie repozytorium online](images/clone-repo-online.png)
 
-8. Po zakończeniu procesu pliki strony powinny wyświetlić się po lewej stronie ekranu :
-![Pliki w VS Code Online](images/vs-code-online-files.png)
+---
 
-9. Teraz coś co ułatwi ci pracę. vs-code-online nie podświetla wszystkich plików mdx automatycznie, a kolorowy tekst to coś co znacznie ułatwi czytanie składni mdx. Aby tekst w plikach mdx podświetlał się na kolorowo, musisz pobrać odpowiednią wtyczkę. Otwórz zakładkę Extensions w lewym Menu:
-![Panel rozszerzeń VS Code](images/vs-code-ext-panel.png)
-Wyszukaj frazę "mdx". Następnie wybierz wtyczkę o nazwie "MDX Inline"
-![Wtyczka MDX Inline](images/vs-code-mdx-ext.png)
-Kliknij Install. Instalacja potrwa około sekundy
-Gotowe. vs code online jest skonfigurowane. Proces Commitowania i pushowania jest taki sam jak w vs-code lokalnym. Patrz [krok 4](4-publikacja-zmian.md)
+4.  Proces klonowania repozytorium wygląda niemal tak samo jak w lokalnej wersji VS Code. Wklej adres URL repozytorium w pole, które pojawi się na górze strony.
+
+---
+
+5.  Po kliknięciu „Enter” strona pokaże taki komunikat:
+    ![Komunikat logowania do GitHub](images/login-github-agree.png)
+    Kliknij „Zezwól”.
+
+---
+
+6.  Teraz musisz zalogować się swoim loginem i hasłem do serwisu GitHub:
+    ![Logowanie do GitHub w VS Code](images/login-vs-code-github.png)
+
+---
+
+7.  Możliwe, że repozytorium nie skopiuje się od razu. Wtedy trzeba powtórzyć cały proces. Jeszcze raz kliknij „Otwórz repozytorium zdalne”.
+    ![Klonowanie repozytorium online](images/clone-repo-online.png)
+    W okienku, które pojawi się na górze, trzeba kliknąć „Otwórz repozytorium GitHub”. Wtedy pojawi się lista repozytoriów przypisanych do konta, na które się zalogowałeś. Wybierz swoje repozytorium. Proces klonowania plików potrwa około minuty.
+
+---
+
+8.  Po zakończeniu procesu pliki strony powinny wyświetlić się po lewej stronie ekranu:
+    ![Pliki w VS Code Online](images/vs-code-online-files.png)
+
+---
+
+9.  Teraz coś, co ułatwi Ci pracę. VS Code Online nie podświetla wszystkich plików MDX automatycznie, a kolorowy tekst to coś, co znacznie ułatwi Ci pracę. Aby tekst w plikach MDX podświetlał się na kolorowo, musisz pobrać wtyczkę. Otwórz zakładkę Extensions w lewym menu:
+    ![Panel rozszerzeń VS Code](images/vs-code-ext-panel.png)
+    Wyszukaj frazę „mdx”. Następnie wybierz wtyczkę o nazwie „MDX Inline”.
+    ![Wtyczka MDX Inline](images/vs-code-mdx-ext.png)
+    Kliknij „Install”. Instalacja potrwa około sekundy.
+
+    ---
+
+    Gotowe. VS Code Online jest skonfigurowane. Proces commitowania i pushowania wygląda tak samo jak w VS Code lokalnym. Patrz [krok 4](4-publikacja-zmian.md).
 
 ---
 [Przejdź do następnego kroku ->](2-zarzadzanie-trescia.md)
