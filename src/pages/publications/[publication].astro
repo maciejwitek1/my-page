@@ -20,7 +20,7 @@ const { Content } = await entry.render();
     <article class="prose dark:prose-invert max-w-none md:col-span-3">
       <header>
         <h1 class="project-title mb-4">{entry.data.title}</h1>
-        <div class="text-xl text-text font-semibold mt-2 mb-8">
+        <div class="text-xl text-text font-semibold mt-2 mb-4">
           <p class="opacity-70 mb-0">{entry.data.author}</p>
           <p class="opacity-70 mt-1">
             {
@@ -33,22 +33,23 @@ const { Content } = await entry.render();
         </div>
       </header>
 
-      <section class="mb-8 p-6 rounded-lg bg-secondary">
-        <p>{entry.data.abstract}</p>
+      <section class="abstract-section p-6 rounded-lg bg-secondary" style="margin-bottom: 1rem;">
+        <h3 class="text-lg font-semibold mb-2 mt-0">Abstract</h3>
+        <p style="margin: 0;">{entry.data.abstract}</p>
       </section>
 
-      <div class="prose dark:prose-invert max-w-none">
+      <div class="prose dark:prose-invert max-w-none mb-0">
         <Content />
       </div>
 
-      <footer class="mt-8 pt-4">
+      <footer class="mt-2">
         <div class="mb-8">
           <div class="flex flex-wrap gap-4 mt-2">
             {
               entry.data.journalLink && (
                 <LinkButton
                   href={entry.data.journalLink}
-                  text="Link do czasopisma"
+                  text="Journal"
                   iconName="mdi:web"
                 />
               )
@@ -57,7 +58,7 @@ const { Content } = await entry.render();
               entry.data.preprint && (
                 <LinkButton
                   href={entry.data.preprint}
-                  text="Pobierz preprint"
+                  text="Preprint"
                   iconName="mdi:file-pdf-box"
                 />
               )
@@ -66,7 +67,7 @@ const { Content } = await entry.render();
               entry.data.pdfFile && (
                 <LinkButton
                   href={entry.data.pdfFile}
-                  text="Pobierz publikację"
+                  text="Published Version"
                   iconName="mdi:file-download"
                 />
               )
@@ -74,7 +75,7 @@ const { Content } = await entry.render();
           </div>
         </div>
         <div>
-          <h3 class="text-lg font-semibold">Słowa kluczowe</h3>
+          <h3 class="text-lg font-semibold">Keywords</h3>
           <div class="flex flex-wrap gap-2 mt-2">
             {
               entry.data.keywords.map((keyword: string) => (
