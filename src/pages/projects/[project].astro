@@ -2,6 +2,8 @@
 import MainLayout from '@layouts/MainLayout.astro';
 import { getCollection } from 'astro:content';
 import LinkButton from '@components/LinkButton.astro';
+import DetailsList from '@components/DetailsList.astro';
+import PublicationDetailsList from '@components/PublicationDetailsList.astro';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -13,10 +15,6 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
-
-const publications = await getCollection('publications', ({ slug }) => {
-  return entry.data.publications?.includes(slug);
-});
 ---
 <MainLayout title={entry.data.title} description={entry.data.description}>
   <h1 class="project-title">{entry.data.title}</h1>
@@ -81,20 +79,16 @@ const publications = await getCollection('publications', ({ slug }) => {
         <Content />
       </div>
 
-      {publications && publications.length > 0 && (
-        <div class="p-6 rounded-lg bg-secondary">
-          <h2 class="text-2xl font-bold mb-4">Related Publications</h2>
-          <ul class="publication-list">
-            {publications.map(pub => (
-              <li class="publication-item">
-                <a class="publication-link" href={`/publications/${pub.slug}`}>
-                  <span class="title">{pub.data.title}</span>
-                  <span class="author">{pub.data.author}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+      {entry.data.publications && entry.data.publications.length > 0 && (
+        <PublicationDetailsList title="Related Publications" items={entry.data.publications} />
+      )}
+      
+      {entry.data['Project Talks'] && entry.data['Project Talks'].length > 0 && (
+        <DetailsList title="Project Talks" items={entry.data['Project Talks']} />
+      )}
+
+      {entry.data['Project Events'] && entry.data['Project Events'].length > 0 && (
+        <DetailsList title="Project Events" items={entry.data['Project Events']} />
       )}
     </article>
   </div>

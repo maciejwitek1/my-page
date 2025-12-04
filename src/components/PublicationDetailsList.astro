@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import Icon from "./Icon.astro";
+
+interface Publication {
+  author: string;
+  title: string;
+  link: string;
+}
+
+interface Props {
+  title: string;
+  items: Publication[];
+}
+
+const { title, items } = Astro.props;
+
+const allPublications = await getCollection('publications');
+
+const getPublicationLink = (publication: Publication) => {
+  const matchingPublication = allPublications.find(p => p.data.journalLink === publication.link);
+  const base = import.meta.env.BASE_URL;
+  return matchingPublication ? `${base}/publications/${matchingPublication.slug}` : publication.link;
+};
+---
+
+<div class="rounded-lg bg-secondary">
+  <h2 class="text-2xl font-bold px-6 pt-6 pb-4">{title}</h2>
+  <ul class="publication-list">
+    {items.map((item: Publication) => (
+      <li class="publication-item last:border-b-0">
+        <a class="publication-link" href={getPublicationLink(item)} target="_blank" rel="noopener noreferrer">
+          <div class="publication-details flex flex-col">
+            <span class="publication-author">{item.author}</span>
+            <span class="title">{item.title}</span>
+          </div>
+          <Icon name="mdi:arrow-right" class:list={["publication-icon"]} />
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
