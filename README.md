@@ -1,7 +1,7 @@
 # Dokumentacja dla Użytkownika
 
 Witaj! Ten dokument jest spisem treści przewodnika, który pomoże Ci samodzielnie zarządzać treścią na Twojej stronie internetowej
-([Maciej Witek - Official Site](https://franeksaja.github.io/r3bq9m1z8t2w4ny)). Każdy krok został opisany w osobnym pliku, aby nawigacja była jak najprostsza.
+([Maciej Witek - Official Site](https://franeksaja.github.io)). Każdy krok został opisany w osobnym pliku, aby nawigacja była jak najprostsza.
 
 ## Spis Treści
 

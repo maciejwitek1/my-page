@@ -33,7 +33,7 @@ if (bio[0]) {
         <!-- Kopia zdjęcia (tylko dla widoku mobilnego) -->
         {person?.image && (
           <div class="image-wrapper hide-on-desktop">
-            <img src={`${import.meta.env.BASE_URL}${person.image}`} alt={`Zdjęcie ${person.name}`} class="bio-image" />
+            <img src={person.image} alt={`Zdjęcie ${person.name}`} class="bio-image" />
           </div>
         )}
 
@@ -54,7 +54,7 @@ if (bio[0]) {
       {person?.image && (
         <aside class="hide-on-mobile">
           <div class="image-wrapper">
-            <img src={`${import.meta.env.BASE_URL}${person.image}`} alt={`Zdjęcie ${person.name}`} class="bio-image" />
+            <img src={person.image} alt={`Zdjęcie ${person.name}`} class="bio-image" />
           </div>
           {person.contact && (
             <div class="contact-icons-container">

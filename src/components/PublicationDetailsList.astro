@@ -18,9 +18,11 @@ const { title, items } = Astro.props;
 const allPublications = await getCollection('publications');
 
 const getPublicationLink = (publication: Publication) => {
-  const matchingPublication = allPublications.find(p => p.data.journalLink === publication.link);
-  const base = import.meta.env.BASE_URL;
-  return matchingPublication ? `${base}/publications/${matchingPublication.slug}` : publication.link;
+  const matchingPublication = allPublications.find(p => p.data.title.trim() === publication.title.trim());
+  if (matchingPublication) {
+    return `/publications/${matchingPublication.slug}`;
+  }
+  return publication.link;
 };
 ---
 
