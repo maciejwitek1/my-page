@@ -6,8 +6,8 @@ import icon from 'astro-icon'
 
 // Uzupełnij 'site' docelowym adresem produkcyjnym (wymagane m.in. dla sitemap)
 export default defineConfig({
-  site: 'https://FranekSaja.github.io',
-  base: '/',
+  site: 'https://maciejwitek1.github.io',
+  base: '/my-page',
   output: 'static',
   integrations: [mdx(), sitemap(), icon(), tailwind()],
   image: {

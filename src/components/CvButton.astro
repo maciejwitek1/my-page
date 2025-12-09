@@ -6,6 +6,6 @@ export interface Props {
   file: string;
 }
 const { text, file } = Astro.props;
-const href = file;
+const href = `${import.meta.env.BASE_URL}${file}`;
 ---
 <LinkButton href={href} text={text} iconName="mdi:file-document-outline" />

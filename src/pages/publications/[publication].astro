@@ -57,7 +57,7 @@ const { Content } = await entry.render();
             {
               entry.data.preprint && (
                 <LinkButton
-                  href={entry.data.preprint}
+                  href={`${import.meta.env.BASE_URL}${entry.data.preprint}`}
                   text="Preprint"
                   iconName="mdi:file-pdf-box"
                 />
@@ -66,7 +66,7 @@ const { Content } = await entry.render();
             {
               entry.data.pdfFile && (
                 <LinkButton
-                  href={entry.data.pdfFile}
+                  href={`${import.meta.env.BASE_URL}${entry.data.pdfFile}`}
                   text="Published Version"
                   iconName="mdi:file-download"
                 />
