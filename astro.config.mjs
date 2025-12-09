@@ -8,7 +8,6 @@ import icon from 'astro-icon'
 export default defineConfig({
   site: 'https://maciejwitek1.github.io',
   base: '/my-page',
-  output: 'static',
   integrations: [mdx(), sitemap(), icon(), tailwind()],
   image: {
     // Dodaj dozwolone hosty dla zdalnych obrazów, kiedy będą potrzebne
