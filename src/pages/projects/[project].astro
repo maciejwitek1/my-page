@@ -83,12 +83,12 @@ const { Content } = await entry.render();
         <PublicationDetailsList title="Related Publications" items={entry.data.publications} />
       )}
       
-      {entry.data['Project Talks'] && entry.data['Project Talks'].length > 0 && (
-        <DetailsList title="Project Talks" items={entry.data['Project Talks']} />
+      {entry.data['project_talks'] && entry.data['project_talks'].length > 0 && (
+        <DetailsList title="Project Talks" items={entry.data['project_talks']} />
       )}
 
-      {entry.data['Project Events'] && entry.data['Project Events'].length > 0 && (
-        <DetailsList title="Project Events" items={entry.data['Project Events']} />
+      {entry.data['project_events'] && entry.data['project_events'].length > 0 && (
+        <DetailsList title="Project Events" items={entry.data['project_events']} />
       )}
     </article>
   </div>

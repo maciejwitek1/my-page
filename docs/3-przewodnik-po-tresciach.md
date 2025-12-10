@@ -99,8 +99,27 @@ Strona ABOUT jako jedyna ma specyficzną, ale prostą budowę metadanych. Mimo t
         ```
          ["Anna Nowak", "Jan Kowalski"]
         ```
-    -   `publications`: Powiązane publikacje.
+    -   `publications`: Lista powiązanych publikacji. Każda publikacja to obiekt z autorem, tytułem i linkiem. Formatowanie:
+        ```
+        [
+          { author: "Jan Kowalski", title: "Tytuł publikacji", link: "https://example.com/pub1" }
+        ]
+        ```
     -   `project_site`: Link do strony projektu.
+    -   `project_talks`: Lista prelekcji. Każda prelekcja to obiekt z tytułem i linkiem. Formatowanie:
+        ```
+        [
+          { title: "Tytuł prelekcji 1", link: "https://example.com/talk1" },
+          { title: "Tytuł prelekcji 2", link: "https://example.com/talk2" }
+        ]
+        ```
+    -   `project_events`: Lista wydarzeń. Każde wydarzenie to obiekt z tytułem i linkiem. Formatowanie:
+        ```
+        [
+          { title: "Nazwa wydarzenia 1", link: "https://example.com/event1" },
+          { title: "Nazwa wydarzenia 2", link: "https://example.com/event2" }
+        ]
+        ```
 
 ---
 

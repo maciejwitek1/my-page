@@ -53,10 +53,10 @@ const projects = defineCollection({
     investigators: z.array(z.string()).optional(),
     publications: z.array(z.object({ author: z.string(), title: z.string(), link: z.string().url() })).optional(),
     project_site: z.string().url().optional(),
-    "Project Description": z.string().optional(),
-    "Project Publications": z.array(z.string()).optional(),
-    "Project Talks": z.array(z.object({ title: z.string(), link: z.string().url() })).optional(),
-    "Project Events": z.array(z.object({ title: z.string(), link: z.string().url() })).optional(),
+    project_description: z.string().optional(),
+    project_publications: z.array(z.string()).optional(),
+    project_talks: z.array(z.object({ title: z.string(), link: z.string().url() })).optional(),
+    project_events: z.array(z.object({ title: z.string(), link: z.string().url() })).optional(),
   })
 });
 
