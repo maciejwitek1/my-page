@@ -168,10 +168,22 @@ Przykład poprawnie wprowadzonych metadanych na podstawie pliku w `content/proje
 #### Formatowanie treści w plikach .mdx
 
 W plikach `.mdx`, w których nie użyto specjalnych **komponentów Astro** (Poznasz je po zielonym kolorze tekstu), możesz swobodnie pisać i formatować tekst pod sekcją z metadanymi. Działa to podobnie do edytora tekstu – możesz używać nagłówków, list, pogrubienia itp.
+Metadane natomiast nie będą reagować na składnię markdown. Jeżeli chcesz dodać *kursywę* lub **grubą czcionkę** do tytułu, abstraktu lub opisu jakiegoś projektu, użyj składni HTML
 
 **Uwaga:** Chociaż system nie zgłosi błędu, jeśli wprowadzisz tekst w sposób nieustrukturyzowany, może to negatywnie wpłynąć na wygląd strony. Aby mieć pewność, że treść będzie wyświetlać się poprawnie, warto trzymać się standardowych zasad formatowania.
 
 > Więcej o tym, jak formatować tekst (np. tworzyć nagłówki, listy, wstawiać linki), dowiesz się na stronie: [https://www.markdownguide.org](https://www.markdownguide.org).
+
+> O składni HTML potrzebnej do nadawania treścią w metadanych nietypowych cech:
+>
+> `<i>To jest kursywa </i>` <i>To jest kursywa </i>
+> `<b>To jest tekst pogrubiony </b>` <b>To jest tekst pogrubiony </b>
+> `<u>To jest podkreślenie tekstu </u>` <u>To jest podkreślenie tekstu </u>
+>
+> Więcej podobnych można z łatwością znaleść w internecie. Także ma o nich wiedzę niemal każdy model językowy AI typu Chat GPT
+
+
+
 
 #### Czym są Komponenty Astro?
 
