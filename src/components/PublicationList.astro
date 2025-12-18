@@ -32,7 +32,7 @@ const englishPublications = publications.filter((p) => p.data.lang === "en").sor
                       {publication.data.author}
                     </span>
                     <span class="text-base md:text-lg font-semibold">
-                      {publication.data.title}
+                      <Fragment set:html={publication.data.title} />
                     </span>
                     <span class="hidden-data" style="display: none;">
                       {publication.data.keywords.join(" ")}
@@ -67,7 +67,7 @@ const englishPublications = publications.filter((p) => p.data.lang === "en").sor
                       {publication.data.author}
                     </span>
                     <span class="text-base md:text-lg font-semibold">
-                      {publication.data.title}
+                      <Fragment set:html={publication.data.title} />
                     </span>
                     <span class="hidden-data" style="display: none;">
                       {publication.data.keywords.join(" ")}

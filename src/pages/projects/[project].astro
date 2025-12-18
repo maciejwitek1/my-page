@@ -17,7 +17,7 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 <MainLayout title={entry.data.title} description={entry.data.description}>
-  <h1 class="project-title">{entry.data.title}</h1>
+  <h1 class="project-title" set:html={entry.data.title}></h1>
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-8">
     <aside class="lg:col-span-1">
       <div class="sticky top-8 p-6 rounded-lg bg-secondary">
