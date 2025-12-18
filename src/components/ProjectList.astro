@@ -28,8 +28,8 @@ const pastProjects = projects.filter(p => p.data.status === 'past').sort(sortPro
             <li class="project-item">
               <a href={path.join(baseUrl, 'projects', project.slug)} class="project-link">
                 <div class="project-link-content">
-                  <Fragment set:html={project.data.title} />
-                  <Fragment set:html={project.data.description} />
+                  <span class="project-title-in-list" set:html={project.data.title}></span>
+                  <span class="project-description" set:html={project.data.description}></span>
                     <span class="hidden-data" style="display: none;">
                     {project.data.tags?.join(' ')}
                     {project.data.date}
@@ -60,8 +60,8 @@ const pastProjects = projects.filter(p => p.data.status === 'past').sort(sortPro
             <li class="project-item">
               <a href={path.join(baseUrl, 'projects', project.slug)} class="project-link">
                 <div class="project-link-content">
-                  <Fragment set:html={project.data.title} />
-                  <Fragment set:html={project.data.description} />
+                  <span class.="project-title-in-list" set:html={project.data.title}></span>
+                  <span class="project-description" set:html={project.data.description}></span>
                     <span class="hidden-data" style="display: none;">
                     {project.data.tags?.join(' ')}
                     {project.data.date}
