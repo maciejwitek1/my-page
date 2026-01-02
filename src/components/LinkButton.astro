@@ -8,7 +8,7 @@ export interface Props {
 }
 const { href, text, iconName } = Astro.props;
 ---
-<a href=`${import.meta.env.BASE_URL}${href}` target="_blank" rel="noopener noreferrer" class="cv-button">
+<a href={href} target="_blank" rel="noopener noreferrer" class="cv-button">
   {iconName && <Icon name={iconName} />}
   <span>{text}</span>
 </a>

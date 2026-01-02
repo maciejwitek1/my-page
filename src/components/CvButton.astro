@@ -3,9 +3,8 @@ import LinkButton from './LinkButton.astro';
 
 export interface Props {
   text: string;
-  file: string;
+  href: string;
 }
-const { text, file } = Astro.props;
-const href = `${import.meta.env.BASE_URL}${file}`;
+const { text, href } = Astro.props;
 ---
 <LinkButton href={href} text={text} iconName="mdi:file-document-outline" />
